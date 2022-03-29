@@ -1,0 +1,36 @@
+name: Tribble
+options:
+  deploymentTarget: 14.0
+  xcodeVersion: '13.*'
+  bundleIdPrefix: com.aleksey.ermolaev
+  generateEmptyDirectories: true
+  createIntermediateGroups: true
+
+configs:
+  Debug: debug
+  Release: release
+
+packages:
+  Swinject:
+    url: https://github.com/Swinject/Swinject.git
+    from: 2.7.1
+
+targets:
+  Tribble-App:
+    info:
+      path: ./Info.plist
+    type: application
+    sources: 
+      - Source
+    properties:
+      UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+      CFBundleDisplayName: Tribble-app
+      # ROOT_URL: $(ROOT_URL)
+    platform: iOS
+    deploymentTarget:
+      iOS: 14.0 
+    settings: 
+      base: 
+        INFOPLIST_FILE: ./Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: tribble.app
+        MY_SETTING: platform ${platform}
